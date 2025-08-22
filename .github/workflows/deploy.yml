@@ -32,3 +32,4 @@ jobs:
         with:
           branch: gh-pages  # Deploy ke branch gh-pages
           folder: ./        # Pastikan folder ini berisi file HTML, CSS, JS kamu
+          token: ${{ secrets.GH_TOKEN }}  # Gunakan token yang disimpan sebagai secret
