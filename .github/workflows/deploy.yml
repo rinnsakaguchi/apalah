@@ -3,11 +3,12 @@ name: Deploy Website to GitHub Pages
 on:
   push:
     branches:
-      - main  # Ganti dengan master jika menggunakan master branch
+      - main  # Pastikan branch utama kamu adalah main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -27,7 +28,7 @@ jobs:
           # npm run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.1.0
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
-          branch: main  # Ganti dengan branch halaman GitHub Pages
-          folder: ./       # Pastikan ini folder yang berisi file HTML, CSS, JS kamu
+          branch: gh-pages  # Deploy ke branch gh-pages
+          folder: ./        # Pastikan folder ini berisi file HTML, CSS, JS kamu
