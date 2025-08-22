@@ -1,0 +1,33 @@
+name: Deploy Website to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Ganti dengan master jika menggunakan master branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js (optional if you need npm for build tools)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies (skip if no dependencies)
+        run: |
+          npm install
+
+      - name: Build the site (skip this step if you're not using a build tool like Webpack)
+        run: |
+          # Biasanya kamu menjalankan build tool di sini
+          # npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.1.0
+        with:
+          branch: main  # Ganti dengan branch halaman GitHub Pages
+          folder: ./       # Pastikan ini folder yang berisi file HTML, CSS, JS kamu
